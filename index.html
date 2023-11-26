@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iphone Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .container{
+        background-color: black;
+        color: aliceblue;
+        height: 625px;
+        width: 28%;
+        margin: auto;
+        padding: 5px 5px;
+        border-radius: 30px;
+    }
+    .display{
+        /* border: 2px solid red; */
+        margin: 100px 3px;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: right;
+        font-size: 3rem;
+    }
+    .button{
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr 1fr;
+        
+        /* border: 2px solid yellow; */
+        height: 400px;
+        margin: -75px 3px;
+    }
+    .btn{
+        width: 60px;
+        height: 60px;
+        /* margin: 5px; */
+        border-radius: 50px;
+        font-size: 1.3rem;
+        background-color: rgb(120, 120, 120);
+        border: none;
+    }
+    .box{
+        /* border: 2px solid white; */
+        width: 60px;
+        height: 60px;
+        margin: 0px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        background-color: rgb(120, 120, 120);
+    }
+    .btn:hover{
+        background-color: rgb(182, 166, 166);
+        cursor: pointer;
+    }
+    input{
+        font-size: 3rem;
+        background-color: black;
+        text-align: right;
+        width: 300px;
+        color: aqua;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="display">
+            <input type="text" placeholder="0" id="inputbox">
+        </div>
+        <div class="button">
+        <div class="box" id="box-1"> <button class="btn">AC</button></div>
+        <div class="box" id="box-2" ><button class="btn">C</button></div>
+        <div class="box" id="box-3"><button class="btn">%</button></div>
+        <div class="box" id="box-4"><button class="btn">/</button></div>
+        <div class="box" id="box-5"><button class="btn">7</button></div>
+        <div class="box" id="box-6"><button class="btn">8</button></div>
+        <div class="box" id="box-7"><button class="btn">9</button></div>
+        <div class="box" id="box-8"><button class="btn">*</button></div>
+        <div class="box" id="box-9"><button class="btn">4</button></div>
+        <div class="box" id="box-10"><button class="btn">5</button></div>
+        <div class="box" id="box-11"><button class="btn">6</button></div>
+        <div class="box" id="box-12"><button class="btn">-</button></div>
+        <div class="box" id="box-13"><button class="btn">1</button></div>
+        <div class="box" id="box-14"><button class="btn">2</button></div>
+        <div class="box" id="box-15"><button class="btn">3</button></div>
+        <div class="box" id="box-16"><button class="btn">+</button></div>
+        <div class="box" id="box-17"><button class="btn">0</button></div>
+        <div class="box" id="box-18"><button class="btn">.</button></div>
+        <div class="box" id="box-19"><button class="btn">=</button></div>
+    </div>
+    </div>
+   <script>
+    let input=document.getElementById('inputbox');
+    let buttons=document.querySelectorAll('.btn');
+    let arr=Array.from(buttons);
+    let string="";
+    arr.forEach(button => {
+        {
+            button.addEventListener('click',(e)=>{
+                if(e.target.innerHTML=='='){
+                    string=eval(string);
+                    input.value=string;
+                }
+                else if(e.target.innerHTML=='AC'){
+                    string="";
+                    input.value=string;
+                }
+                else if(e.target.innerHTML=='C'){
+                    string=string.substring(0,string.length-1);
+                    input.value=string;
+                }
+                else{
+                    string+=e.target.innerHTML;
+                    input.value=string;
+                    
+                }
+            })
+        }
+    });
+   </script>
+</body>
+</html>

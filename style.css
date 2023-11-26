@@ -1,0 +1,6 @@
+.box:nth-child(17){
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 5/span 6;
+    padding: 0px 45px;
+}
